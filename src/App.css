@@ -1,0 +1,118 @@
+.duration-0 {
+  --tw-duration: 0ms;
+  transition-duration: 0ms;
+  transition-delay: 0ms;
+}
+
+/* 优化拖拽体验 */
+[data-dnd-draggable-context='true'] {
+  transition: none !important;
+}
+
+[data-dragging='true'] {
+  transition: none !important;
+  transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) !important;
+  z-index: 9999 !important;
+  -webkit-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) !important;
+  -moz-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) !important;
+  -ms-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) !important;
+  -o-transform: translate3d(var(--translate-x, 0), var(--translate-y, 0), 0) !important;
+}
+
+[data-dnd-draggable] {
+  transform-origin: 0 0;
+  contain: layout;
+}
+
+/* 背景图片相关样式 */
+.with-background-image {
+  position: relative;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* 增加卡片在有背景图片时的可读性 */
+.dark .MuiPaper-root {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .MuiPaper-root {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 移动端适配样式 */
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 改善触摸体验的样式 */
+  button,
+  [role='button'],
+  a {
+    padding: 6px 12px !important;
+    min-height: 36px;
+  }
+
+  /* 按钮图标大小调整 */
+  .MuiButton-startIcon > *:nth-of-type(1),
+  .MuiButton-endIcon > *:nth-of-type(1) {
+    font-size: 18px !important;
+  }
+
+  /* 图标按钮样式调整 */
+  .MuiIconButton-root {
+    padding: 6px !important;
+  }
+
+  /* 移动端更清晰的分割线 */
+  .MuiDivider-root {
+    margin: 8px 0 !important;
+  }
+
+  /* 确保移动端对话框不会过于接近屏幕边缘 */
+  .MuiDialog-paper {
+    margin: 12px !important;
+  }
+
+  /* 移动端菜单更宽 */
+  .MuiMenu-paper {
+    min-width: 200px !important;
+  }
+
+  /* 移动端表单元素更容易点击 */
+  .MuiInputBase-input {
+    padding: 10px 12px !important;
+  }
+}
+
+/* 暗黑模式增强 */
+.dark .MuiPaper-root {
+  background-color: #1e1e1e;
+}
+
+.dark .MuiCard-root {
+  background-color: #262626;
+}
+
+/* 增强可访问性 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
